@@ -1,0 +1,24 @@
+package com.tlys.exe.webservice;
+
+public interface IExeDcar {
+	/**
+	 * 货物运输中的实际运量数据接口(车号、发站代码、发货日期、货票号、实际运量 )
+	 * 第一次按照车号、发站代码、货票号查，如果没有的话按照车号、发站代码、发货日期查，发货日期前后8天。如果记录存在更新实际运量。cdy_date即为制票日期
+	 * 
+	 * @return
+	 */
+	String updateTransActualWgt(String car_no, String cdy_org_stn, String cdy_date, String wb_nbr,
+			Double car_actual_wgt, String login_name);
+
+	/**
+	 * 运行动态数据接口
+	 */
+	String getExeDcarStat(String car_no, String login_name);
+
+	/**
+	 * 车辆轨迹数据接口
+	 * 
+	 * @return
+	 */
+	String getExeGcarEvta(String car_no, String s_date, String e_date, String login_name);
+}
